@@ -36,7 +36,7 @@ import lombok.Setter;
 public class Articoli {
 
 private static final long serialVersionUID = 7361753083273455478L;
-	//prova
+	
 	@Id
 	@Column(name = "CODART")
 	private String codArt;
