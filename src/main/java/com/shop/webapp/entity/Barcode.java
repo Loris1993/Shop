@@ -1,4 +1,4 @@
-package come.shop.webapp.entity;
+package com.shop.webapp.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -47,6 +47,34 @@ public class Barcode implements Serializable  {
 	@JoinColumn(name = "CODART", referencedColumnName = "codArt")
 	@JsonBackReference
 	private Articoli articolo; //Il nome deve essere coerente con parametro MappedBy
+
+	public String getBarcode() {
+		return barcode;
+	}
+
+	public void setBarcode(String barcode) {
+		this.barcode = barcode;
+	}
+
+	public String getIdTipoArt() {
+		return idTipoArt;
+	}
+
+	public void setIdTipoArt(String idTipoArt) {
+		this.idTipoArt = idTipoArt;
+	}
+
+	public Articoli getArticolo() {
+		return articolo;
+	}
+
+	public void setArticolo(Articoli articolo) {
+		this.articolo = articolo;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
 	
 	
 	

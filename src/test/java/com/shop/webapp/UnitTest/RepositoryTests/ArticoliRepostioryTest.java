@@ -17,11 +17,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ContextConfiguration;
 
 import com.shop.webapp.Application;
+import com.shop.webapp.entity.Articoli;
+import com.shop.webapp.entity.Barcode;
+import com.shop.webapp.entity.CatProdotti;
 import com.shop.webapp.repostiory.ArticoliRepository;
-
-import come.shop.webapp.entity.Articoli;
-import come.shop.webapp.entity.Barcode;
-import come.shop.webapp.entity.CatProdotti;
 
 @SpringBootTest()
 @ContextConfiguration(classes = Application.class)

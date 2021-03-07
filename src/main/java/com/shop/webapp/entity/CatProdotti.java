@@ -1,4 +1,4 @@
-package come.shop.webapp.entity;
+package com.shop.webapp.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
