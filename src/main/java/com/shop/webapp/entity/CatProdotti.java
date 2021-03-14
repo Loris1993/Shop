@@ -32,7 +32,7 @@ private static final long serialVersionUID = 3788120361600509595L;
 	@Column(name = "DESCRIZIONE")
 	private String descrizione;
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "famAssort")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "catProdotti")
 	@JsonBackReference
 	private Set<Articoli> articoli = new HashSet<>();
 
