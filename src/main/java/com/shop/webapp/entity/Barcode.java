@@ -26,11 +26,7 @@ import lombok.Setter;
 @Setter
 public class Barcode implements Serializable  {
 
-	public Barcode(String string, String string2, Articoli articolo2) {
-		
 	
-		
-	}
 
 	private static final long serialVersionUID = 8682477643109847337L;
 
@@ -48,6 +44,22 @@ public class Barcode implements Serializable  {
 	@JsonBackReference
 	private Articoli articolo; //Il nome deve essere coerente con parametro MappedBy
 
+	
+	public Barcode() {
+		
+		
+	}
+	
+	
+	
+	public Barcode(String string, String string2, Articoli articolo2) {
+		this.barcode = string;
+		this.idTipoArt = string2;
+		this.articolo = articolo2;
+		
+	}
+	
+	
 	public String getBarcode() {
 		return barcode;
 	}

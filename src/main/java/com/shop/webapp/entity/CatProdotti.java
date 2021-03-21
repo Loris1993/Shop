@@ -17,7 +17,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "catprodotti")
+@Table(name = "famassort") // TODO da cambiare nome tabella in catprodotti
 @Data
 @Getter
 @Setter

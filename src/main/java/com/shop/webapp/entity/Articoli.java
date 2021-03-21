@@ -80,6 +80,13 @@ private static final long serialVersionUID = 7361753083273455478L;
 	@JoinColumn(name = "IDIVA", referencedColumnName = "idIva")
 	private Iva iva;
 	
+	public Articoli() {
+		
+		
+	}
+	
+	
+	
 	public Articoli(String CodArt, String Descrizione, Integer PzCart, Double PesoNetto, String IdStatoArt)
 	{
 		this.codArt = CodArt;
