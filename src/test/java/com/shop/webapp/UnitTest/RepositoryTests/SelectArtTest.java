@@ -108,20 +108,9 @@ private MockMvc mockMvc;
 				.andExpect(jsonPath("$.barcode[0].barcode").value("8008490000021")) 
 				.andExpect(jsonPath("$.barcode[0].idTipoArt").exists())
 				.andExpect(jsonPath("$.barcode[0].idTipoArt").value("CP")) 
-				 //catProdotti
-				.andExpect(jsonPath("$.famAssort.id").exists())
-				.andExpect(jsonPath("$.famAssort.id").value("1")) 
-				.andExpect(jsonPath("$.famAssort.descrizione").exists())
-				.andExpect(jsonPath("$.famAssort.descrizione").value("DROGHERIA ALIMENTARE")) 
 				 //ingredienti
 				.andExpect(jsonPath("$.ingredienti").isEmpty())
-				 //Iva
-				.andExpect(jsonPath("$.iva.idIva").exists())
-				.andExpect(jsonPath("$.iva.idIva").value("22")) 
-				.andExpect(jsonPath("$.iva.descrizione").exists())
-				.andExpect(jsonPath("$.iva.descrizione").value("IVA RIVENDITA 22%"))
-				.andExpect(jsonPath("$.iva.aliquota").exists())
-				.andExpect(jsonPath("$.iva.aliquota").value("22"))	
+				 	
 				
 				.andDo(print());
 	}
@@ -144,68 +133,5 @@ private MockMvc mockMvc;
 	}
 	
 	
-	//Test ricerca per  per descrizione
-	private String JsonData2 = "[" + JsonData + "]";
 	
-	@Test
-	@Order(3)
-	public void testListArtByDesc() throws Exception
-	{
-		mockMvc.perform(MockMvcRequestBuilders.get(ApiBaseUrl + "/cerca/descrizione/ACQUA ULIVETO 15 LT")
-				.accept(MediaType.APPLICATION_JSON))
-				.andExpect(status().isOk())
-				.andExpect(jsonPath("$", hasSize(1)))
-				.andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
-				.andExpect(content().json(JsonData2)) 
-				.andReturn();
-	}
-	
-	
-	/*
-	@Test
-	@Order(3)
-	public void testListArtByCodArt() throws Exception
-	{
-		mockMvc.perform(MockMvcRequestBuilders.get(ApiBaseUrl + "/cerca/codice/002000301")
-				.accept(MediaType.APPLICATION_JSON))
-				.andExpect(status().isOk())
-				.andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
-				.andExpect(content().json(JsonData)) 
-				.andReturn();
-	}
-	
-	private String CodArt = "002000301b";
-	
-	@Test
-	@Order(4)
-	public void testErrlistArtByCodArt() throws Exception
-	{
-		mockMvc.perform(MockMvcRequestBuilders.get(ApiBaseUrl + "/cerca/codice/" + CodArt)
-				.contentType(MediaType.APPLICATION_JSON)
-				.content(JsonData)
-				.accept(MediaType.APPLICATION_JSON))
-				.andExpect(status().isNotFound())
-				.andExpect(jsonPath("$.codice").value(404))
-				.andExpect(jsonPath("$.messaggio").value("L'articolo con codice " + CodArt + " non è stato trovato!"))
-				.andDo(print());
-	}
-	
-
-
-
-	@Test
-	@Order(6)
-	public void testErrlistArtByDesc() throws Exception
-	{
-		String Filter = "123ABC";
-		
-		mockMvc.perform(MockMvcRequestBuilders.get(ApiBaseUrl + "/cerca/descrizione/" + Filter)
-				.accept(MediaType.APPLICATION_JSON))
-				.andExpect(status().isNotFound())
-				.andExpect(jsonPath("$.codice").value(404))
-				.andExpect(jsonPath("$.messaggio").value("Non è stato trovato alcun articolo avente descrizione " + Filter))
-				.andReturn();
-	}
-	
-	*/
 }
