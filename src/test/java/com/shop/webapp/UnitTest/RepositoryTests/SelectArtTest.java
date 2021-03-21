@@ -111,8 +111,10 @@ private MockMvc mockMvc;
 				 //ingredienti
 				.andExpect(jsonPath("$.ingredienti").isEmpty())
 				 	
-				
+				//stampa
 				.andDo(print());
+		
+		
 	}
 	
 	private String Barcode = "8008490002138";
