@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.shop.webapp.entity.Articoli;
+import com.shop.webapp.exception.NotFoundException;
 import com.shop.webapp.service.ArticoliService;
 
 
@@ -28,7 +29,7 @@ private static final Logger logger = LoggerFactory.getLogger(ArticoliController.
 	// ---- Ricerca Per Barcode coerente con i metodi della classe SelectArtTest--
 	//produce un JSON
 	@GetMapping(value = "/cerca/ean/{barcode}", produces = "application/json")
-	public ResponseEntity<Articoli> listArtByEan(@PathVariable("barcode") String Barcode)	 
+	public ResponseEntity<Articoli> listArtByEan(@PathVariable("barcode") String Barcode) throws NotFoundException	 
 	{
 		logger.info(String.format("****** Otteniamo l'articolo con barcode %s *******", Barcode) );
 		
@@ -40,7 +41,7 @@ private static final Logger logger = LoggerFactory.getLogger(ArticoliController.
 			
 			logger.warn(ErrMsg);
 			
-			return new ResponseEntity<Articoli>(HttpStatus.NOT_FOUND);//status 404
+			throw new NotFoundException(ErrMsg);
 		}
 		
 		return new ResponseEntity<Articoli>(articolo, HttpStatus.OK);// status 200

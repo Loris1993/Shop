@@ -183,6 +183,7 @@ private static final long serialVersionUID = 7361753083273455478L;
 	public void setCatProdotti(CatProdotti catProdotti) {
 		this.catProdotti = catProdotti;
 	}
+	
 
 	public Iva getIva() {
 		return iva;
@@ -195,7 +196,9 @@ private static final long serialVersionUID = 7361753083273455478L;
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-	
+
+
+
 	
 	
 }

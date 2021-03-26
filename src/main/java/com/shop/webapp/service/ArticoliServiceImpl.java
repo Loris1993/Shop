@@ -11,45 +11,38 @@ import com.shop.webapp.repostiory.ArticoliRepository;
 
 @Service
 @Transactional(readOnly = true)
-public class ArticoliServiceImpl implements ArticoliService{
+public class ArticoliServiceImpl implements ArticoliService {
 
 	@Autowired
 	ArticoliRepository articoliRepository;
 
 	@Override
-	public List<Articoli> SelByDescrizione(String descrizione) 
-	{
+	public List<Articoli> SelByDescrizione(String descrizione) {
 		return articoliRepository.findByDescrizioneLike(descrizione.toUpperCase());
 	}
 
 	@Override
-	public Articoli SelByCodArt(String codArt) 
-	{
-		 
+	public Articoli SelByCodArt(String codArt) {
+
 		return articoliRepository.findByCodArt(codArt);
 	}
 
 	@Override
-	public Articoli SelByBarcode(String barcode) 
-	{
-		
+	public Articoli SelByBarcode(String barcode) {
+
 		return articoliRepository.SelByEan(barcode);
 	}
 
 	@Override
 	@Transactional
-	public void DelArticolo(Articoli articolo) 
-	{
+	public void DelArticolo(Articoli articolo) {
 		articoliRepository.delete(articolo);
 	}
 
 	@Override
 	@Transactional
-	public void InsArticolo(Articoli articolo) 
-	{
+	public void InsArticolo(Articoli articolo) {
 		articoliRepository.save(articolo);
 	}
 
-	
-	
 }
