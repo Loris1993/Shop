@@ -14,10 +14,13 @@ import com.shop.webapp.entity.Articoli;
 import com.shop.webapp.exception.NotFoundException;
 import com.shop.webapp.service.ArticoliService;
 
+import lombok.extern.java.Log;
+
 
 
 @RestController
 @RequestMapping("/api/articoli")
+@Log
 public class ArticoliController {
 
 private static final Logger logger = LoggerFactory.getLogger(ArticoliController.class);
@@ -48,6 +51,24 @@ private static final Logger logger = LoggerFactory.getLogger(ArticoliController.
 	}
 	
 	
-	
+	// ------------------- Ricerca Per Codice ------------------------------------
+		@GetMapping(value = "/cerca/codice/{codart}", produces = "application/json")
+		public ResponseEntity<Articoli> listArtByCodArt(@PathVariable("codart") String CodArt)  
+				throws NotFoundException
+		{
+			logger.info(String.format("****** Otteniamo l'articolo con codice %s *******", CodArt));
+
+			Articoli articolo = articoliService.SelByCodArt(CodArt);
+
+			if (articolo == null)
+			{
+				String ErrMsg = String.format("L'articolo con codice %s non Ã¨ stato trovato!", CodArt);
+				
+				logger.warn(ErrMsg);
+			
+			}
+
+			return new ResponseEntity<Articoli>(articolo, HttpStatus.OK);
+		}
 	
 }
