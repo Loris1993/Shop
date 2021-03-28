@@ -17,7 +17,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "famassort") // TODO da cambiare nome tabella in catprodotti
+@Table(name = "famassort") 
 @Data
 @Getter
 @Setter
@@ -35,6 +35,11 @@ private static final long serialVersionUID = 3788120361600509595L;
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "catProdotti")
 	@JsonBackReference
 	private Set<Articoli> articoli = new HashSet<>();
+	
+	public CatProdotti() {
+		
+		
+	}
 
 	public int getId() {
 		return id;
@@ -50,18 +55,22 @@ private static final long serialVersionUID = 3788120361600509595L;
 
 	public void setDescrizione(String descrizione) {
 		this.descrizione = descrizione;
+		
 	}
 
 	public Set<Articoli> getArticoli() {
 		return articoli;
+		
 	}
 
 	public void setArticoli(Set<Articoli> articoli) {
 		this.articoli = articoli;
+		
 	}
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
+		
 	}
 
 	

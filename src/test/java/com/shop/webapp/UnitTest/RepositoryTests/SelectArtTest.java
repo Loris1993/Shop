@@ -64,7 +64,7 @@ private MockMvc mockMvc;
 			"            \"idTipoArt\": \"CP\"\n" + 
 			"        }\n" + 
 			"    ],\n" + 
-			"    \"famAssort\": {\n" + 
+			"    \"catProdotti\": {\n" + 
 			"        \"id\": 1,\n" + 
 			"        \"descrizione\": \"DROGHERIA ALIMENTARE\"\n" + 
 			"    },\n" + 
@@ -133,6 +133,22 @@ private MockMvc mockMvc;
 				.andExpect(jsonPath("$.messaggio").value("Il barcode " + Barcode + " non è stato trovato!"))
 				.andDo(print());
 	}
+	
+	
+	//test verifica ricerca per codice articolo 
+	@Test
+	@Order(3)
+	public void testListArtByCodArt() throws Exception
+	{
+		mockMvc.perform(MockMvcRequestBuilders.get(ApiBaseUrl + "/cerca/codice/002000301")
+				.accept(MediaType.APPLICATION_JSON))
+				.andExpect(status().isOk())
+				.andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
+				.andExpect(content().json(JsonData)) 
+				.andReturn();
+	}
+	
+	
 	
 	
 	

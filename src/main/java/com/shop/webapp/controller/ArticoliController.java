@@ -51,7 +51,7 @@ private static final Logger logger = LoggerFactory.getLogger(ArticoliController.
 	}
 	
 	
-	// ------------------- Ricerca Per Codice ------------------------------------
+	// ------------------- Ricerca Per Codice articolo ------------------------------------
 		@GetMapping(value = "/cerca/codice/{codart}", produces = "application/json")
 		public ResponseEntity<Articoli> listArtByCodArt(@PathVariable("codart") String CodArt)  
 				throws NotFoundException
