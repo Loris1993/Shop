@@ -64,7 +64,7 @@ private MockMvc mockMvc;
 			"            \"idTipoArt\": \"CP\"\n" + 
 			"        }\n" + 
 			"    ],\n" + 
-			"    \"catProdotti\": {\n" + 
+			"    \"catprodotti\": {\n" + 
 			"        \"id\": 1,\n" + 
 			"        \"descrizione\": \"DROGHERIA ALIMENTARE\"\n" + 
 			"    },\n" + 
